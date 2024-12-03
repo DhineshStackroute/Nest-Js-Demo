@@ -1,0 +1,18 @@
+{
+  "Courses": [
+    {
+      "id": "779b0edd-af90-4ee0-867f-4e771c008888",
+      "courseName": "string",
+      "description": "string",
+      "courseDuration": "number",
+      "status": "PLANNE"
+    },
+    {
+      "id": "166f0735-a7dc-429d-a3cd-97b1ca89d43c",
+      "courseName": "hello",
+      "description": "h r u",
+      "courseDuration": 20,
+      "status": "COMPLETED"
+    }
+  ]
+}
