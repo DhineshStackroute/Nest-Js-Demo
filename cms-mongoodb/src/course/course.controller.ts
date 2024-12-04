@@ -1,8 +1,9 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
 import { CourseService } from './course.service';
 import { Course, CourseStatus } from './schema/course.schema';
 import { CreateCourseDto } from './dto/create-course';
 import { v4 as uuidv4 } from 'uuid';
+import { UpdateCourseStatusDTO } from './dto/update-course-status';
 @Controller('course')
 export class CourseController {
     // add a service a dpencey
@@ -40,6 +41,13 @@ export class CourseController {
     @Delete(':id')
     async deleteCourse(@Param("id") id: string): Promise<string> {
         const res = await this.courseService.deleteCourse(id);
+        return res;
+    }
+
+    @Patch(':id')
+    async updateCourseStatus(@Param("id") id: string,@Body("status") updateStaus: UpdateCourseStatusDTO): Promise<string> {
+        const status=updateStaus.status;
+        const res = await this.courseService.updateCourseStatus(id, status);
         return res;
     }
 }

@@ -7,6 +7,7 @@ import {
 import mongoose from 'mongoose';
 import { Course, CourseStatus } from './schema/course.schema';
 import { InjectModel } from '@nestjs/mongoose';
+import { Observable } from 'rxjs';
 
 // services are used to interact with database
 @Injectable()
@@ -59,17 +60,38 @@ export class CourseService {
     return res;
   }
   // update a course status
+  async updateCourseStatus(id: string, status: CourseStatus): Promise<string> {
+    const res = await this.courseModel.findOneAndUpdate(
+      { id: id }, // find command
+      { status: status }, // update
+    );
+    if (!res) {
+      //throw new NotFoundException('Course not found');
+      return 'Course not found';
+    } else {
+      return 'Updated Successfully';
+    }
+  }
+
+  async updateprocebyCiurseId(id: string, price: number): Promise<string> {
+    const res = await this.courseModel.findOneAndUpdate(
+      { id: id }, // find command
+      { price: price }, // update
+    );
+    if (!res) {
+      throw new NotFoundException('Course not found');
+    } else {
+      return 'Updated Successfully';
+    }
+  }
 
   // delete a course
   async deleteCourse(id: string): Promise<string> {
     const res = await this.courseModel.findOneAndDelete({ id: id });
-  if (!res) {
-    throw new NotFoundException('Course not found');
-  }
-  else{
-    return "Deleted Successfully";
-  }
-    
-   
+    if (!res) {
+      throw new NotFoundException('Course not found');
+    } else {
+      return 'Deleted Successfully';
+    }
   }
 }

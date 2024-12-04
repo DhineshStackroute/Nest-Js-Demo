@@ -3,9 +3,9 @@ import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 
 // define enum for course Stayus
 export enum CourseStatus {
-  STARTED,
-  IN_PROGRESS,
-  COMPLETED,
+  STARTED="STARTED", //0
+  IN_PROGRESS="IN_PROGRESS", //1
+  COMPLETED="COMPLETED", //2
 }
 
 // creata a class for Course
