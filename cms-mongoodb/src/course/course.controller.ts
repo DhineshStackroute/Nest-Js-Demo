@@ -1,4 +1,4 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { CourseService } from './course.service';
 import { Course, CourseStatus } from './schema/course.schema';
 import { CreateCourseDto } from './dto/create-course';
@@ -21,6 +21,25 @@ export class CourseController {
             status: CourseStatus.STARTED
         }
         const res = await this.courseService.addCourse(course);
+        return res;
+    }
+
+    // Get ALl Cources
+    @Get()
+    async getAllCourses(): Promise<Course[]> {
+        const res = await this.courseService.getAllCourses();
+        return res;
+    }
+    //  Get the Course by Id
+    @Get(':id')
+    async getCourseById(@Param("id") id: string): Promise<Course> {
+        const res = await this.courseService.getCourseById(id);
+        return res;
+    }
+    // Delete the Course by Id
+    @Delete(':id')
+    async deleteCourse(@Param("id") id: string): Promise<string> {
+        const res = await this.courseService.deleteCourse(id);
         return res;
     }
 }
