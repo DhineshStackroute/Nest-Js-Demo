@@ -40,10 +40,10 @@ export class User {
       type: String,            
     }
   )
-
-  password: string;
+  password: string; 
   @Prop()
   role: UserRole;
+ 
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

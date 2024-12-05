@@ -1,4 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { User } from 'src/auth/schema/user.schema';
 
 
 // define enum for course Stayus
@@ -40,6 +41,9 @@ export class Course {
   duration: number;
   @Prop()
   status: CourseStatus;
+
+  // who creates this Course 
+
 }
 
 // create a  schema based on class

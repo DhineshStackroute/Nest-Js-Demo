@@ -5,6 +5,8 @@ import { CreateCourseDto } from './dto/create-course';
 import { v4 as uuidv4 } from 'uuid';
 import { UpdateCourseStatusDTO } from './dto/update-course-status';
 import { AuthGuard } from '@nestjs/passport';
+import { GetUser } from 'src/auth/custom-decorater/get-user.decorder';
+import { User } from 'src/auth/schema/user.schema';
 
 @Controller('course')
 @UseGuards(AuthGuard()) // Authorize[]
@@ -15,7 +17,8 @@ export class CourseController {
     // create a controller to add a new Course
     @Post()
     async addCourse(@Body() newcourse: CreateCourseDto): Promise<Course> {
-
+      
+        
         const course:Course={
             id:uuidv4(),
             name: newcourse.name,
@@ -23,7 +26,10 @@ export class CourseController {
             price: newcourse.price,
             duration: newcourse.duration,
             status: CourseStatus.STARTED
+            
         }
+       
+        
         const res = await this.courseService.addCourse(course);
         return res;
     }
