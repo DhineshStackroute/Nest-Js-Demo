@@ -1,10 +1,13 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, UseGuards } from '@nestjs/common';
 import { CourseService } from './course.service';
 import { Course, CourseStatus } from './schema/course.schema';
 import { CreateCourseDto } from './dto/create-course';
 import { v4 as uuidv4 } from 'uuid';
 import { UpdateCourseStatusDTO } from './dto/update-course-status';
+import { AuthGuard } from '@nestjs/passport';
+
 @Controller('course')
+@UseGuards(AuthGuard()) // Authorize[]
 export class CourseController {
     // add a service a dpencey
     constructor(private courseService: CourseService) {}
