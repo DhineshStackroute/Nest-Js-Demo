@@ -1,7 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
-import { Transform } from 'class-transformer';
 import { TransFormInterceptor } from './transforms/transform.interceptors';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
