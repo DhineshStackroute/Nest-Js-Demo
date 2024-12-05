@@ -1,5 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { User } from 'src/auth/schema/user.schema';
+import { Document } from 'mongoose';
 
 
 // define enum for course Stayus
@@ -8,6 +9,8 @@ export enum CourseStatus {
   IN_PROGRESS="IN_PROGRESS", //1
   COMPLETED="COMPLETED", //2
 }
+export type CourseDocument = Course & Document;
+
 
 // creata a class for Course
 @Schema({
@@ -48,3 +51,5 @@ export class Course {
 
 // create a  schema based on class
 export const CourseSchema = SchemaFactory.createForClass(Course);
+
+

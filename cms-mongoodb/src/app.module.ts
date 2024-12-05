@@ -14,6 +14,8 @@ import { AuthModule } from './auth/auth.module';
     }),
     // configure the database Module
     MongooseModule.forRoot(process.env.DB_URI),
+
+    
     CourseModule,
     AuthModule,
   ],
