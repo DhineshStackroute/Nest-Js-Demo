@@ -1,6 +1,7 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { HydratedDocument } from 'mongoose';
 import { User } from 'src/auth/schema/user.schema';
-import { Document } from 'mongoose';
+
 
 
 // define enum for course Stayus
@@ -9,8 +10,6 @@ export enum CourseStatus {
   IN_PROGRESS="IN_PROGRESS", //1
   COMPLETED="COMPLETED", //2
 }
-export type CourseDocument = Course & Document;
-
 
 // creata a class for Course
 @Schema({
@@ -18,38 +17,50 @@ export type CourseDocument = Course & Document;
   collection: 'courses',
 })
 export class Course {
+  
   @Prop({
     type: String,
     unique: true,
   })
   id: string;
+  
   @Prop({
     type: String,
     unique: true,
   })
   name: string;
+  
   @Prop({
     type: String,
     required: true,
   })
   description: string;
+  
   @Prop({
     type: Number,
   })
   price: number;
+  
   @Prop({
     type: Number,
     required: true,
   })
   duration: number;
+  
   @Prop()
   status: CourseStatus;
 
   // who creates this Course 
+  @Prop()
+  user:User
 
 }
 
 // create a  schema based on class
 export const CourseSchema = SchemaFactory.createForClass(Course);
+
+//  export the document
+
+export type CourseDocument = HydratedDocument<Course>;
 
 
