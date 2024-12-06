@@ -1,18 +1,13 @@
-import React from 'react';
+import React from "react";
 // import logo from './logo.svg';
-import './App.css';
-import Header from './components/header';
-import AddCourse from './components/addcourses';
+import "./App.css";
+import { RouterProvider } from "react-router";
+import routes from "./myroute";
+
 
 function App() {
   return (
-    <div>
-      {/* Render the Header Component */}
-      <Header title="Course Management" msg="Welcoem to data"></Header>
-      <Header title="User Management"></Header>
-      <AddCourse></AddCourse>
-    </div>
-    
+    <RouterProvider router={routes}></RouterProvider>
   );
 }
 
