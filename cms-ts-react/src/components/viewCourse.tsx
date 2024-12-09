@@ -6,7 +6,7 @@ import Card from "react-bootstrap/Card";
 import { Button, Col, Row } from "react-bootstrap";
 import CardGroup from "react-bootstrap/CardGroup";
 import Display from "./display";
-import { CourseContext, UserContext } from "../appContext/appContext";
+import { CourseContext } from "../appContext/appContext";
 
 const ViewCourse = () => {
   const [courseList, SetCourseLIst] = useState([]);

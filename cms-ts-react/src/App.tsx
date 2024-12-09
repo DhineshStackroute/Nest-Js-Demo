@@ -10,6 +10,8 @@ import {
 } from "./appContext/appContext";
 import axios from "axios";
 import { Course } from "./Model/course.model";
+import { Provider } from "react-redux";
+import myAppStore from "./store/appstore";
 
 function App() {
   const [cList, setCList] = useState([]);
@@ -36,7 +38,9 @@ function App() {
   return (
     <ThemeContext.Provider value={theme}>
       <CourseContext.Provider value={{ ArrayOfCourse: cList }}>
-        <RouterProvider router={routes}></RouterProvider>
+      
+          <RouterProvider router={routes}></RouterProvider>
+      
       </CourseContext.Provider>
     </ThemeContext.Provider>
   );
