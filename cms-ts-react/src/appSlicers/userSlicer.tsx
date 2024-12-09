@@ -5,7 +5,8 @@
 import { createSlice } from "@reduxjs/toolkit"
 
 const initialState ={
-    isLoggedIn : false
+    isLoggedIn : false,
+    
 }
 
 // create a slice , slice will contains the state and its actions(reducers)
@@ -17,10 +18,11 @@ const userSlicer= createSlice({
     initialState,
     reducers:{
         login: (state)=>{
-            state.isLoggedIn = true;
+            state.isLoggedIn = !state.isLoggedIn;
+            
         },
         logout: (state)=>{
-            state.isLoggedIn = false
+            state.isLoggedIn = !state.isLoggedIn
         }
     }
 });
