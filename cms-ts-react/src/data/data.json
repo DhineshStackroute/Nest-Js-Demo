@@ -1,8 +1,84 @@
 {
-    "users":[
-
-    ],
-    "courses":[
-        
-    ]
+  "courses": [
+    {
+      "id": "b09a",
+      "cName": "React Js",
+      "cDescription": "Learning React JS"
+    },
+    {
+      "id": "bf87",
+      "cName": "React Com",
+      "cDescription": "Componnets in React"
+    },
+    {
+      "id": "cca2",
+      "cName": "test 2",
+      "cDescription": "testing the data"
+    },
+    {
+      "id": "0509",
+      "cName": "test 2",
+      "cDescription": "testif 2 from"
+    },
+    {
+      "id": "f5f1",
+      "cName": "let test",
+      "cDescription": "test again "
+    },
+    {
+      "id": "3c5b",
+      "cName": "let test",
+      "cDescription": "test again "
+    },
+    {
+      "id": "f65b",
+      "cName": "dcnAKJBSJK",
+      "cDescription": "JNJVBDKJSBDJKBS"
+    },
+    {
+      "id": "f7bc",
+      "cName": "dcnAKJBSJK",
+      "cDescription": "JNJVBDKJSBDJKBS"
+    },
+    {
+      "id": "d2cc",
+      "cName": "dcnAKJBSJK",
+      "cDescription": "JNJVBDKJSBDJKBS"
+    },
+    {
+      "id": "8cc5",
+      "cName": "dcnAKJBSJK",
+      "cDescription": "JNJVBDKJSBDJKBS"
+    },
+    {
+      "id": "fbdd",
+      "cName": "dcnAKJBSJK",
+      "cDescription": "JNJVBDKJSBDJKBS"
+    },
+    {
+      "id": "214f",
+      "cName": "dcnAKJBSJK",
+      "cDescription": "JNJVBDKJSBDJKBS"
+    },
+    {
+      "id": "e696",
+      "cName": "nsdfklFKJN",
+      "cDescription": "nxvlnasjdnkjs"
+    },
+    {
+      "id": "a3cf",
+      "cName": "sfdsf",
+      "cDescription": "sdfasdfasd"
+    },
+    {
+      "id": "b2b3",
+      "cName": "jsbdckjb",
+      "cDescription": "jvkjjbvjxcbvjdbi"
+    },
+    {
+      "id": "2aff",
+      "cName": "teahdgu",
+      "cDescription": "vhjvcvsdugvhcg"
+    }
+  ]
 }

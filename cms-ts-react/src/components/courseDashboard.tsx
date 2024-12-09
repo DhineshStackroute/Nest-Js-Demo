@@ -10,7 +10,7 @@ const CourseDashboard=()=>{
                 {/* <Nav.Link>Add</Nav.Link>
                 <Nav.Link>View</Nav.Link> */}
                 <Link className="nav-link" to={"add"}>Add Course</Link>
-                <Link className="nav-link" to={""}>View Course</Link>
+                <Link className="nav-link" to={"all"}>View Course</Link>
             </Nav>
         </Navbar>
         <Outlet></Outlet>

@@ -9,6 +9,7 @@ import Home from "./components/Home";
 import Register from "./components/register";
 import AddCourse from "./components/addcourses";
 import CourseDashboard from "./components/courseDashboard";
+import ViewCourse from "./components/viewCourse";
 
 const routes = createBrowserRouter([
   {
@@ -24,15 +25,23 @@ const routes = createBrowserRouter([
         Component: Register,
       },
       {
-        path:'courses',
+        path: "courses",
         Component: CourseDashboard,
-        children:[
+        children: [
           {
-            path:'add',
-          Component: AddCourse
+            path: "",
+            Component: ViewCourse,
+          },
+          {
+            path: "add",
+            Component: AddCourse,
+          },
+          {
+            path:'all',
+            Component:ViewCourse
           }
-        ]
-      }
+        ],
+      },
     ],
   },
 ]);

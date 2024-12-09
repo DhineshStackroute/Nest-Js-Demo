@@ -3,6 +3,9 @@ import { Container, Form, Button, Col } from "react-bootstrap";
 import { addCourse } from "../servivices/course.service";
 import { useFormik } from "formik";
 import * as yup from "yup";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+
 
 const AddCourse = () => {
   // const [course, setCourse]=useState({
@@ -24,6 +27,7 @@ const AddCourse = () => {
   // }
 
   // defien the schema for Courses
+  const navigate= useNavigate();
 
   const courseSchema = yup.object({
     cName: yup
@@ -34,7 +38,7 @@ const AddCourse = () => {
     cDescription: yup
       .string()
       .required("Description is Required")
-      .min(10,"MIN 10")
+      .min(10, "MIN 10")
       .max(20, "MIN 20"),
   });
   // define a course object using formik
@@ -46,7 +50,40 @@ const AddCourse = () => {
     },
     validationSchema: courseSchema,
     onSubmit: (values) => {
-      console.log(values);
+      // console.log(values);
+      const response = addCourse(values);
+      // console.log(response);
+      
+      response.then((res)=>{
+       if(res===201)
+       {
+        alert("sucess");
+        navigate('/courses/all');
+
+       }
+       else if(res===404)
+       {
+        alert("no Fount")
+       }
+       
+        
+      })
+      .catch((err)=>{
+       alert("Server Not Running")
+        
+      })
+      // .then((res) => {
+      //   console.log(res);
+      //   if (res.status == 201) {
+      //     alert("Course Created Successfully");
+      //   }
+      // })
+      // .catch((err) => {
+      //   console.log(err);
+      // });
+    },
+    onReset: () => {
+      courseFormik.resetForm();
     },
   });
 
@@ -75,6 +112,7 @@ const AddCourse = () => {
             type="string"
             placeholder="name of the course"
             onChange={courseFormik.handleChange}
+            value={courseFormik.values.cName}
           />
           <Col>
             <p className="text-danger">{courseFormik.errors.cName}</p>
@@ -87,10 +125,11 @@ const AddCourse = () => {
               name="cDescription"
               type="string"
               onChange={courseFormik.handleChange}
+              value={courseFormik.values.cDescription}
             />
           </Col>
           <Col>
-            <p className="text-danger">{courseFormik.errors.cDescription }</p>
+            <p className="text-danger">{courseFormik.errors.cDescription}</p>
           </Col>
         </Form.Group>
         <Button type="submit">Add</Button>
