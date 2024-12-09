@@ -21,5 +21,6 @@ export const getAllCourse=():Promise<any>=>{
   .catch((errr)=>{
     return errr;
   })
-
 }
+
+

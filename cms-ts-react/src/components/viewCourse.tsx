@@ -1,36 +1,47 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getAllCourse } from "../servivices/course.service";
 import { Course } from "../Model/course.model";
 import Card from "react-bootstrap/Card";
-import { Button } from "react-bootstrap";
-import CardGroup from 'react-bootstrap/CardGroup'
+import { Button, Col, Row } from "react-bootstrap";
+import CardGroup from "react-bootstrap/CardGroup";
 import Display from "./display";
+import { CourseContext, UserContext } from "../appContext/appContext";
 
 const ViewCourse = () => {
-  const [courseList, SetCourseLIst] = useState(Array<Course>);
+  const [courseList, SetCourseLIst] = useState([]);
+  const mycourse=useContext(CourseContext);
+
+
   useEffect(() => {
-    getAllCourse()
-      .then((res) => {
-        console.log(courseList);
-        SetCourseLIst(res);
-      })
-      .catch((err) => {
-        console.log("err");
-      });
+    // getAllCourse()
+    //   .then((res) => {
+    //     console.log(courseList);
+    //     SetCourseLIst(res);
+    //   })
+    //   .catch((err) => {
+    //     console.log("err");
+    //   });
+    SetCourseLIst(mycourse.ArrayOfCourse)
+
   }, []);
   return (
     <>
       <h1>Availabe Course</h1>
-    <CardGroup style={{display:"flex", flexWrap:'wrap', }}>
-    {courseList.map((course) => {
-        return (
-          <>
-           <Display coursedetails={course}></Display>
-          </>
-        );
-      })}
-    </CardGroup>
+      {/* <CardGroup style={{display:"flex", flexWrap:'wrap' */}
+      <Row xs={1} md={2} className="g-2">
+        {courseList.map((course) => {
+          return (
+            <>
+              {/* <Col md={3} className="g-4"> */}
+                <Display coursedetails={course}></Display>
+              {/* </Col> */}
+            </>
+          );
+        })}
+
+        {/* </CardGroup> */}
+      </Row>
     </>
   );
 };

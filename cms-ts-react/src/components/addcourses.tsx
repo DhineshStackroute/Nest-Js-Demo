@@ -1,13 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Container, Form, Button, Col } from "react-bootstrap";
 import { addCourse } from "../servivices/course.service";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { ThemeContext } from "../appContext/appContext";
 
 
 const AddCourse = () => {
+
+  const courseTheme= useContext(ThemeContext);
   // const [course, setCourse]=useState({
   //     cName:"",
   //     cDescription:""
@@ -103,7 +106,7 @@ const AddCourse = () => {
     //   </Form>
     // </Container>
     <Container className="mt-5">
-      <h1>Add new Course</h1>
+      <h1 style={{ backgroundColor: courseTheme.bgcolor}} >Add new Course</h1>
       <Form className="mt-5" onSubmit={courseFormik.handleSubmit}>
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
           <Form.Label>Name of Course</Form.Label>

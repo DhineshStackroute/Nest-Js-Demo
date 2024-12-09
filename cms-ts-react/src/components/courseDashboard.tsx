@@ -1,10 +1,14 @@
+import { useContext } from "react"
 import { Nav, Navbar } from "react-bootstrap"
 import { Link, Outlet } from "react-router"
+import { ThemeContext } from "../appContext/appContext"
 
 const CourseDashboard=()=>{
+    // access the theme For course
+    const dashboardTheme= useContext(ThemeContext);
     return(
         <>
-        <h1> Course DashBoard</h1>
+        <h1 style={{backgroundColor:dashboardTheme.bgcolor, color:dashboardTheme.color}}> Course DashBoard</h1>
         <Navbar>
             <Nav>
                 {/* <Nav.Link>Add</Nav.Link>
